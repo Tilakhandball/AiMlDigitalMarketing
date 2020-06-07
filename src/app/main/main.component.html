@@ -1,0 +1,51 @@
+<!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
+<div>
+  <form [formGroup]="trainForm">
+    <div>
+      <button class="file-selection-btn" mat-stroked-button type="button" (click)="filePicker.click()">Select a File</button>
+      <input type="file" #filePicker (change)="onXlsPicked($event)">
+      <span>{{fileName}}</span>
+    </div>
+    <div>
+      <mat-progress-bar mode="indeterminate" *ngIf="showTrainProgress"></mat-progress-bar>
+      <button class="progress-bar-btn" mat-raised-button type="button" color="primary" (click)="train()">Train</button>
+    </div>
+  </form>
+  <mat-accordion>
+    <mat-expansion-panel [expanded]="channelExpansion">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="marketing-channel-header">
+          Marketing Channels
+        </mat-panel-title>
+        <mat-panel-description>
+          Choose the preferred Channel(s)
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <form [formGroup]="marketingChannelsForm">
+        <div class="marketing-channel-container">
+          <span *ngFor="let channel of marketingChannels">
+            <mat-checkbox [formControlName]="channel.controlName">{{channel.displayName}}</mat-checkbox>
+          </span>
+        </div>
+        <div class="budget-container">
+          <div class="budget-header">Enter your Total Budget($):</div>
+          <div>
+            <mat-form-field>
+              <mat-label>Total Budget*</mat-label>
+              <input matInput formControlName="totalBudget">
+            </mat-form-field>
+          </div>
+          <div>
+            <button mat-raised-button color="primary" (click)="formSubmit()">Submit</button>
+          </div>
+        </div>
+      </form>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <!-- <mat-list>
+    <mat-list-item>
+      <mat-icon mat-list-icon></mat-icon>
+      <div mat-line>{{folder.name}}</div>
+    </mat-list-item>
+  </mat-list> -->
+</div>

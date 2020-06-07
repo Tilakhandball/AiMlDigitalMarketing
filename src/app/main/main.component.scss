@@ -1,0 +1,46 @@
+mat-spinner{
+  margin: auto;
+}
+
+.file-selection-btn{
+  margin: 16px 16px 16px 0px;
+}
+
+input[type='file']{
+  visibility: hidden;
+  width: 0px;
+}
+
+.progress-bar-btn{
+  margin-top: 16px
+}
+
+mat-expansion-panel{
+  margin-top: 16px !important;
+  .marketing-channel-header{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+.marketing-channel-container{
+  display: flex;
+  flex-flow: row wrap;
+  box-sizing: border-box;
+  span{
+    width: 16%;
+    margin-top: 8px;
+  }
+}
+
+.budget-container{
+  margin-top: 32px;
+  .budget-header{
+    font-size: 16px;
+    font-weight: bold;
+  }
+  div{
+    margin-top: 16px;
+  }
+}
+
