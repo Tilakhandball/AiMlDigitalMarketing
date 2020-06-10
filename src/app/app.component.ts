@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MainService } from 'src/app/main/service/main.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Marketing Automation Tool';
+  title = 'Multi Touch Attribution Model';
+
+  constructor(public mainService: MainService) {}
+
 }

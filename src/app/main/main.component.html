@@ -1,5 +1,4 @@
-<!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
-<div>
+<div class="main-data-cls">
   <form [formGroup]="trainForm">
     <div>
       <button class="file-selection-btn" mat-stroked-button type="button" (click)="filePicker.click()">Select a File</button>
@@ -12,7 +11,7 @@
     </div>
   </form>
   <mat-accordion>
-    <mat-expansion-panel [expanded]="channelExpansion">
+    <mat-expansion-panel [expanded]="channelExpansion" (opened)="setExpansion(true)" (closed)="setExpansion(false)">
       <mat-expansion-panel-header>
         <mat-panel-title class="marketing-channel-header">
           Marketing Channels
@@ -42,10 +41,11 @@
       </form>
     </mat-expansion-panel>
   </mat-accordion>
-  <!-- <mat-list>
-    <mat-list-item>
-      <mat-icon mat-list-icon></mat-icon>
-      <div mat-line>{{folder.name}}</div>
+  <mat-list class="budget-list">
+    <mat-list-item *ngFor="let budgets of key">
+      <!-- <mat-icon mat-list-icon></mat-icon> -->
+      <div mat-line>{{budgets}}</div>
+      <div mat-line class="budget-amount">{{'$' + budgetCalcArr[budgets]}}</div>
     </mat-list-item>
-  </mat-list> -->
+  </mat-list>
 </div>

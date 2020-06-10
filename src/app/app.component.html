@@ -1,6 +1,10 @@
+<mat-spinner *ngIf="mainService.isLoading"></mat-spinner>
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>{{title}}</span>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>
+<div class="footer-cls">
+  <img src="assets/TI_logo.jpg"/>
+</div>

@@ -1,9 +1,8 @@
-mat-spinner{
-  margin: auto;
-}
 
 .file-selection-btn{
   margin: 16px 16px 16px 0px;
+  background-color: #5b5b5b;
+  color: #cddc39;
 }
 
 input[type='file']{
@@ -12,7 +11,7 @@ input[type='file']{
 }
 
 .progress-bar-btn{
-  margin-top: 16px
+  margin-top: 16px;
 }
 
 mat-expansion-panel{
@@ -44,3 +43,13 @@ mat-expansion-panel{
   }
 }
 
+.budget-list{
+  .budget-amount{
+    color: #cddc39;
+  }
+}
+
+.main-data-cls{
+  height: 81vh;
+  overflow-y: overlay;
+}

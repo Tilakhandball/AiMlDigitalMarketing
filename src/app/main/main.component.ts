@@ -22,9 +22,9 @@ export class MainComponent implements OnInit {
   marketingChannelsForm: FormGroup;
   fileName: string;
   showTrainProgress = false;
-  isLoading = false;
   channelExpansion = true;
-  budgetCalcArr = [];
+  budgetCalcArr = {};
+  objectKeys = Object.keys;
   marketingChannels = [
     { controlName: 'affiliate', displayName: 'Affiliate' },
     { controlName: 'directMail', displayName: 'Direct Mail' },
@@ -81,9 +81,9 @@ export class MainComponent implements OnInit {
   }
 
   formSubmit = () => {
-    this.isLoading = true;
+    this.mainService.isLoading = true;
     this.mainService.marketingChannelSubmit(this.marketingChannelsForm.getRawValue()).subscribe(res => {
-      this.isLoading = false;
+      this.mainService.isLoading = false;
       this.marketingChannelsForm.reset(this.resetValue);
       this.channelExpansion = false;
       this.marketingChannelsForm.markAsPristine();
@@ -92,13 +92,22 @@ export class MainComponent implements OnInit {
       this.marketingChannels.forEach(item => {
         if (Object.keys(res).indexOf(item.controlName) !== -1) {
           const val = {};
-          this.budgetCalcArr.push(val[item.controlName] = res[item.controlName]);
+          val[item.displayName] = res[item.controlName];
+          // val[item.displayName] = item.displayName
+          this.budgetCalcArr = { ...val, ...this.budgetCalcArr };
         }
       });
       console.log(this.budgetCalcArr);
     }, () => {
-      this.isLoading = false;
+      this.mainService.isLoading = false;
     });
   }
 
+  get key() {
+    return Object.keys(this.budgetCalcArr);
+  }
+
+  setExpansion = (val:boolean) => {
+    this.channelExpansion = val;
+  }
 }

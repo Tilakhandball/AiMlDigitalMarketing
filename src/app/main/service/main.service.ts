@@ -8,7 +8,7 @@ const BACKEND_URL = environment.apiUrl;
 @Injectable({ providedIn: 'root' })
 
 export class MainService {
-
+  isLoading = false;
   constructor(private http: HttpClient) { }
 
   trainDataSet = (dataFile: File) => {

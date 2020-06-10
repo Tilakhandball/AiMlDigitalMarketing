@@ -7,6 +7,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatListModule } from '@angular/material/list';
 
 const MaterialComponent = [
   MatToolbarModule,
@@ -16,7 +17,8 @@ const MaterialComponent = [
   MatProgressBarModule,
   MatCheckboxModule,
   MatProgressSpinnerModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatListModule
 ];
 
 @NgModule({

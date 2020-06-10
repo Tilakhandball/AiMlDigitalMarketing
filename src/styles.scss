@@ -1,2 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.mat-raised-button.mat-primary, .mat-toolbar.mat-primary, .mat-checkbox-checked.mat-accent .mat-checkbox-background{
+  background: #cddc39;
+  color: #000000;
+}
+
+.mat-progress-bar-fill::after{
+  background: #cddc39;
+}
+
+.mat-progress-bar-buffer{
+  background: #eaf581;
+}
+
+.mat-list-base .mat-list-item .mat-list-text{
+  flex-direction: row !important;
+  justify-content: space-between !important;
+}
+mat-list{
+  max-height: 280px;
+  overflow-y: overlay !important;
+  margin-top: 32px;
+  padding-top: 0px !important;
+  mat-list-item{
+    height: 39px !important;
+    &:not(:last-child){
+      border-bottom: 1px solid #c3c3c3;
+    }
+  }
+}
+
+.mat-form-field.mat-focused{
+  .mat-form-field-label{
+    color: #cddc39;
+  }
+  .mat-form-field-ripple{
+    background-color: #cddc39;
+  }
+}
+
+mat-spinner{
+  position: fixed !important;
+  top: 40vh;
+  left: 45vw;
+  z-index: 1;
+  svg circle{
+    stroke: #cddc39 !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #c3c3c3;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #5b5b5b;
+  border-radius: 2px;
+}
+
