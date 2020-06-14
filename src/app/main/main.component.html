@@ -29,9 +29,17 @@
         <div class="budget-container">
           <div class="budget-header">Enter your Total Budget($):</div>
           <div>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
               <mat-label>Total Budget*</mat-label>
               <input matInput formControlName="totalBudget">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Model*</mat-label>
+              <mat-select formControlName="model">
+                <mat-option *ngFor="let model of modelDropDown" [value]="model.value">
+                  {{model.viewValue}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
           </div>
           <div>

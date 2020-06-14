@@ -5,6 +5,11 @@ import { MainService } from 'src/app/main/service/main.service';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PreferredChannelListComponent } from 'src/app/preferred-channel-list/preferred-channel-list.component';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 
 export class CustomErrorStateMatcher implements ErrorStateMatcher {
@@ -46,21 +51,33 @@ export class MainComponent implements OnInit {
     paidSocial: '', display: '', videos: '', pushNotification: '',
     paidSearch: '', tv: '', email: '', internalCampaign: '', sms: '', audio: ''
   };
-
+  modelDropDown = [
+    { value: 'firstTouch', viewValue: 'First Touch' },
+    { value: 'lastTouch', viewValue: 'Last Touch' },
+    { value: 'linear', viewValue: 'Linear' },
+    { value: 'markovChain', viewValue: 'Markov Chain' },
+    { value: 'customizedModel', viewValue: 'Customized Model' },
+    { value: 'all', viewValue: 'All' },
+  ];
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   constructor(
     private mainService: MainService,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.trainForm = new FormGroup({
       xls: new FormControl(null, { validators: [Validators.required] })
     });
     this.marketingChannelsForm = new FormGroup({
-      totalBudget: new FormControl('', { validators: [Validators.required] })
+      totalBudget: new FormControl('', { validators: [Validators.required] }),
+      model: new FormControl('', { validators: [Validators.required] })
     });
     this.marketingChannels.forEach(item => {
       this.marketingChannelsForm.addControl(item.controlName, new FormControl(''));
     });
+    this.openSnackBar();
   }
 
   onXlsPicked = (event: Event) => {
@@ -118,6 +135,14 @@ export class MainComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(res => {
       this.channelExpansion = true;
+    });
+  }
+
+  openSnackBar = () => {
+    this._snackBar.open('This is an incremental POC. Let us help you to know the POC', 'More Details', {
+      duration: 10000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
     });
   }
 }

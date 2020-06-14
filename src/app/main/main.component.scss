@@ -27,8 +27,27 @@ mat-expansion-panel{
   flex-flow: row wrap;
   box-sizing: border-box;
   span{
-    width: 16%;
     margin-top: 8px;
+  }
+  @media screen and (min-width: 950px) {
+    span{
+      width: 16%;
+    }
+  }
+  @media screen and (min-width: 650px) and (max-width: 950px) {
+    span{
+      width: 25%;
+    }
+  }
+  @media screen and (min-width: 500px) and (max-width: 650px) {
+    span{
+      width: 33%;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    span{
+      width: 50%;
+    }
   }
 }
 
@@ -40,6 +59,9 @@ mat-expansion-panel{
   }
   div{
     margin-top: 16px;
+    mat-form-field{
+      padding-right: 16px;
+    }
   }
 }
 
