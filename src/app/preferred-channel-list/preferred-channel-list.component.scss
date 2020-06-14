@@ -1,0 +1,17 @@
+.budget-list{
+  margin: 24px;
+  max-height: 240px;
+  overflow-y: overlay;
+  .budget-amount{
+    color: #cddc39;
+  }
+}
+
+.btn-container{
+  display: flex;
+  margin-bottom: 24px;
+  justify-content: flex-end;
+  button{
+    margin-right: 24px;
+  }
+}

@@ -41,11 +41,4 @@
       </form>
     </mat-expansion-panel>
   </mat-accordion>
-  <mat-list class="budget-list">
-    <mat-list-item *ngFor="let budgets of key">
-      <!-- <mat-icon mat-list-icon></mat-icon> -->
-      <div mat-line>{{budgets}}</div>
-      <div mat-line class="budget-amount">{{'$' + budgetCalcArr[budgets]}}</div>
-    </mat-list-item>
-  </mat-list>
 </div>

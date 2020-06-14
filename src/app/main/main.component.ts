@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators, NgForm, FormGroupDirective } from '
 import * as _ from 'lodash';
 import { MainService } from 'src/app/main/service/main.service';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PreferredChannelListComponent } from 'src/app/preferred-channel-list/preferred-channel-list.component';
 
 
 export class CustomErrorStateMatcher implements ErrorStateMatcher {
@@ -45,7 +47,9 @@ export class MainComponent implements OnInit {
     paidSearch: '', tv: '', email: '', internalCampaign: '', sms: '', audio: ''
   };
 
-  constructor(private mainService: MainService) { }
+  constructor(
+    private mainService: MainService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.trainForm = new FormGroup({
@@ -97,17 +101,23 @@ export class MainComponent implements OnInit {
           this.budgetCalcArr = { ...val, ...this.budgetCalcArr };
         }
       });
-      console.log(this.budgetCalcArr);
+      this.openListDialog();
     }, () => {
       this.mainService.isLoading = false;
     });
   }
 
-  get key() {
-    return Object.keys(this.budgetCalcArr);
+  setExpansion = (val: boolean) => {
+    this.channelExpansion = val;
   }
 
-  setExpansion = (val:boolean) => {
-    this.channelExpansion = val;
+  openListDialog = () => {
+    let dialogRef = this.dialog.open(PreferredChannelListComponent, {
+      width: '40vw',
+      data: this.budgetCalcArr
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      this.channelExpansion = true;
+    });
   }
 }

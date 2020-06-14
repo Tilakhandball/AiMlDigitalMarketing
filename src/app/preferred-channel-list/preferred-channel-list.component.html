@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{budgetCalcTitle}}</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-list class="budget-list">
+  <mat-list-item *ngFor="let budgets of key">
+    <!-- <mat-icon mat-list-icon></mat-icon> -->
+    <div mat-line>{{budgets}}</div>
+    <div mat-line class="budget-amount">{{'$' + calculatedBudget[budgets]}}</div>
+  </mat-list-item>
+</mat-list>
+<div class="btn-container">
+  <button mat-raised-button color="primary" (click)="closeDialog()">Close</button>
+  <button mat-raised-button color="primary" (click)="download()">Download CSV</button>
+</div>

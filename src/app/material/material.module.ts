@@ -8,6 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const MaterialComponent = [
   MatToolbarModule,
@@ -18,7 +19,8 @@ const MaterialComponent = [
   MatCheckboxModule,
   MatProgressSpinnerModule,
   MatExpansionModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule
 ];
 
 @NgModule({
