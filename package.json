@@ -25,7 +25,7 @@
     "@angular/platform-browser": "~9.0.7",
     "@angular/platform-browser-dynamic": "~9.0.7",
     "@angular/router": "~9.0.7",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "ngx-csv": "^0.3.2",
     "path": "^0.12.7",
     "rxjs": "~6.5.4",
